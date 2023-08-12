@@ -6,9 +6,11 @@ namespace XMLLoadingExample
 {
 	class Program
 	{
-		static void Main(string[] args)
+		static async Task Main(string[] args)
 		{
 			string xmlFilePath = @"C:\Users\adamk\OneDrive\Plocha\Programming\C#\BoldemImporter\userData.xml";
+			TokenManager tokenManager = new TokenManager();
+
 
 			XmlDocument xmlDoc = new XmlDocument();
 			xmlDoc.Load(xmlFilePath);
