@@ -8,14 +8,14 @@ namespace XMLLoadingExample
 	{
 		static async Task Main(string[] args)
 		{
-			string xmlFilePath = @"C:\Users\adamk\OneDrive\Plocha\Programming\C#\BoldemImporter\userData.xml";
+			string xmlFilePath = "userData.xml";
 			TokenManager tokenManager = new TokenManager();
 
-
+			//Load data 
 			XmlDocument xmlDoc = new XmlDocument();
 			xmlDoc.Load(xmlFilePath);
 			XmlNodeList userList = xmlDoc.GetElementsByTagName("user");
-			List<User> users = new List<User>();
+			List<User> contacs = new List<User>();
 
 			foreach (XmlNode userNode in userList)
 			{
@@ -23,7 +23,13 @@ namespace XMLLoadingExample
 				user.Firstname = userNode.SelectSingleNode("firstname").InnerText;
 				user.Lastname = userNode.SelectSingleNode("lastname").InnerText;
 				user.Email = userNode.SelectSingleNode("email").InnerText;
-				users.Add(user);
+				contacs.Add(user);
+
+				if (contacs.Count == 100)
+				{
+					await tokenManager.InsertUsers(contacs);
+					contacs.Clear();
+				}
 			}
 		}
 	}
