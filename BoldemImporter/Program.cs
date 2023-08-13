@@ -8,7 +8,7 @@ namespace XMLLoadingExample
 	{
 		static async Task Main(string[] args)
 		{
-			string xmlFilePath = "userData.xml";
+			string xmlFilePath = "../userData.xml";
 			TokenManager tokenManager = new TokenManager();
 
 			//Load data 
