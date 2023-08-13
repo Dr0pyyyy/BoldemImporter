@@ -9,7 +9,7 @@ namespace XMLLoadingExample
 		static async Task Main(string[] args)
 		{
 			string xmlFilePath = "../userData.xml";
-			TokenManager tokenManager = new TokenManager();
+			ApiHelper tokenManager = new ApiHelper();
 
 			if (!File.Exists(xmlFilePath))
 			{

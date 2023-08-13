@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BoldemImporter
 {
-	public class TokenManager
+	public class ApiHelper
 	{
 		//ClientId and ClientSecret should be stored safely somewhere else, for example in vault
 		private string ClientId = "78e2255844044faca45ba4d6cd86df10";
@@ -22,7 +22,7 @@ namespace BoldemImporter
 		private HttpClient Client { get; set; }
 		private Token AccessToken { get; set; }
 
-		public TokenManager()
+		public ApiHelper()
 		{
 			Client = new HttpClient();
 			AccessToken = GetAccessToken().GetAwaiter().GetResult();
